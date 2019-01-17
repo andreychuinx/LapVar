@@ -1,17 +1,17 @@
 const Clarifai = require('clarifai');
 const app = new Clarifai.App({
- apiKey: 'fad9ac477b1a43b68301156f2f97064c'
+ apiKey: 'd702ef684da9483c9a6c6bdc115568d3'
 });
 
 const predict = (link, callback) => {
-	app.models.predict('bd367be194cf45149e75f01d59f77ba7', link).then(
-	  function(response) {
-	    callback(null, response);
-	  },
-	  function(err) {
-	    callback(err, null);
-	  }
-	);
+	app.models.initModel({id: 'd702ef684da9483c9a6c6bdc115568d3', version: "aa7f35c01e0642fda5cf400f543e7c40"})
+		.then(generalModel => {
+			return generalModel.predict(link)
+		})
+		.then(response => {
+			callback(null, response)
+		})
+		
 }
 
 module.exports = {predict}

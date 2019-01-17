@@ -8,14 +8,13 @@ function initialize(selector) {
     var lng = position.coords.longitude;
     $.ajax({
       type: 'POST',
-      url: `http://localhost:3000/api/analyze`,
+      url: `http://localhost:4001/api/analyze`,
       data: { link: $('#foodURL').val() },
       success: (responseFood) => {
         $.ajax({
           type: 'GET',
-          url: `http://localhost:3000/zomato?lat=${lat}&lng=${lng}&food=${responseFood.data}`,
+          url: `http://localhost:4001/zomato?lat=${lat}&lng=${lng}&food=${responseFood.data}`,
           success: function (response) {
-            console.log('Masuk sini')
             if (response.length == 0) {
               $("#registration").append(function () {
                 alert('Not Found')

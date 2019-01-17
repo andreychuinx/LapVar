@@ -1,6 +1,6 @@
 function facebookLogin(){
     FB.login(function(response){
-      axios.post('http://localhost:3000/login',response)
+      axios.post('http://localhost:4001/login',response)
       .then((result)=>{
         console.log(result.data);
         if(!result.data.status){
@@ -44,7 +44,7 @@ function checkLoginState() {
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1540773972637417',
+    appId      : '1970991113149747',
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page

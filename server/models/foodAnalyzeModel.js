@@ -7,6 +7,7 @@ const analyze = (data, callback) => {
 	.header("Accept", "application/json")
 	.send(`text=${data}`)
 	.end(function (result) {
+		console.log('KEMARIII')
 	  callback(result);
 	});
 }
